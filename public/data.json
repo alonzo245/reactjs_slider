@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "code": 200,
+    "requested_service": "demo-get-stories-details/"
+  },
+  "data": {
+    "stories": [
+      {
+        "id": 1140,
+        "publish_date": "2018-12-07T00:00:00Z",
+        "cover_image_url": "https://s3-eu-west-1.amazonaws.com/smize-prod-v2/3DDD5296D4859FBF649D_full.jpeg",
+        "cover_thumb_url": "https://s3-eu-west-1.amazonaws.com/smize-prod-v2/3DDD5296D4859FBF649D_thumb.jpeg",
+        "story_title": "I Want It Soft And Shiny",
+        "story_sub_title": "Interior designers got the memo - VELVET is back!",
+        "trends_detected" : "Material Type: Velvet, Suede | Product Type: Sofa, Pillows",
+        "language" : "EN",
+        "link" : "https://www.bllush.com/demos/moebel24-stories/index.php?i-want-it-soft-and-shiny&story=876"
+      },
+      {
+        "id": 1141,
+        "publish_date": "2018-12-08T00:00:00Z",
+        "cover_image_url": "https://s3-eu-west-1.amazonaws.com/smize-prod-v2/B9E1178348763AA56947_full.jpeg",
+        "cover_thumb_url": "https://s3-eu-west-1.amazonaws.com/smize-prod-v2/B9E1178348763AA56947_thumb.jpeg",
+        "story_title": "Go for Gold",
+        "story_sub_title": "Designing with gold here and there is the way to achieve the ultimate vintage look",
+        "trends_detected" : "Product Type: Lighting | Color: Gold",
+        "language" : "EN",
+        "link" : "https://www.bllush.com/demos/moebel24-stories/index.php?go-for-gold&story=877"
+      },
+      {
+        "id": 1142,
+        "publish_date": "2018-12-09T00:00:00Z",
+        "cover_image_url": "https://s3-eu-west-1.amazonaws.com/smize-prod-v2/8237734CE7ED3E61C5C4_full.jpeg",
+        "cover_thumb_url": "https://s3-eu-west-1.amazonaws.com/smize-prod-v2/8237734CE7ED3E61C5C4_thumb.jpeg",
+        "story_title": "That 70's Looks",
+        "story_sub_title": "Time travel to the most hip and playful decade",
+        "trends_detected" : "Style: Retro, Seventies",
+        "language" : "EN",
+        "link" : "https://www.bllush.com/demos/moebel24-stories/index.php?that-70-s-looks&story=878"
+      }
+    ]
+  }
+}
