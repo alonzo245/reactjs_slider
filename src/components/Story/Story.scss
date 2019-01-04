@@ -18,6 +18,9 @@
     padding: 7px 34px;
     font-size: 13px;
     cursor: pointer;
+    &:hover {
+      background-color: #c95a00;
+    }
   }
   .StoryDetails {
     display: table-cell;

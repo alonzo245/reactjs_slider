@@ -8,22 +8,27 @@
 
   .PrevBtn,
   .NextBtn {
+    color: rgb(92, 92, 92);
+    height: 46px;
+    width: 37px;
     font-size: 0;
     line-height: 0;
     position: absolute;
     top: 50%;
     display: block;
-    width: 20px;
-    height: 20px;
     padding: 0;
     -webkit-transform: translate(0, -50%);
     -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
     cursor: pointer;
-    margin-left: 6px;
+    margin-left: 0px;
     z-index: 3;
   }
   .NextBtn {
-    right: 6px;
+    right: 0px;
   }
+}
+
+.DisableBtn{
+  opacity: 0.5;
 }

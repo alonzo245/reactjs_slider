@@ -2,15 +2,44 @@ import React, { Component } from 'react';
 import axios from '../../axios';
 import './StoriesWidget.scss';
 import Story from '../../components/Story/Story';
-import { FaArrowCircleRight, FaArrowCircleLeft } from 'react-icons/fa';
+import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
 class StoriesWidget extends Component {
 
   state = {
     stories: null,
-    currentStory: null
+    currentStory: null,
+    mobile: false
+  }
+
+  /**
+  * Calculate & Update state of new dimensions
+  */
+  updateDimensions = () => {
+    if(this.state.currentStory){
+    console.log('this.state.currentStory.index '+ this.state.currentStory.index)
+    console.log('this.state.stories.length '+ this.state.stories.length)
+    }
+    if (window.innerWidth < 520) {
+      console.log('called')
+      console.log('mobile ' + window.innerWidth);
+      this.setState({mobile: true});
+    } else {
+      console.log('desktop');
+      this.setState({mobile: false});
+    }
+  }
+
+  /**
+   * Remove event listener
+   */
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions.bind(this));
   }
 
   componentDidMount() {
+    this.updateDimensions();
+    window.addEventListener("resize", this.updateDimensions.bind(this));
+
     // axios.get('http://localhost:3000/data.json')
     axios.get('https://api.bllush.com/sandbox/get-stories-details.json')
       .then(res => {
@@ -25,7 +54,7 @@ class StoriesWidget extends Component {
         this.setState({
           stories: updatedStories,
           currentStory: updatedStories[0]
-        })
+        });
       })
       .catch(err => {
         console.log('err', err)
@@ -33,7 +62,9 @@ class StoriesWidget extends Component {
   }
 
   nextStory = (index) => {
-    if (index === this.state.stories.length - 2) {
+    let decrement = this.state.mobile ? 1 : 2; 
+
+    if (index === this.state.stories.length - decrement) {
       return false;
     }
     const newIndex = this.state.currentStory.index + 1;
@@ -60,14 +91,16 @@ class StoriesWidget extends Component {
     }
     else {
       const { stories, currentStory } = this.state;
+      
       return (
         <React.Fragment>
-          <FaArrowCircleRight className="NextBtn"
+          <IoIosArrowForward className="NextBtn"
             onClick={() => this.nextStory(currentStory.index)}
-          ></FaArrowCircleRight>
-          <FaArrowCircleLeft className="PrevBtn"
+          ></IoIosArrowForward>
+          <IoIosArrowBack className="PrevBtn"
             onClick={() => this.prevStory(currentStory.index)}
-          ></FaArrowCircleLeft>
+          ></IoIosArrowBack>
+
           <div className="StoriesWrapper">
             <div className={"StoriesSlider"}>
               <div className="StoriesSliderWrapper" style={{
