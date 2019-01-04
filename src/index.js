@@ -4,4 +4,4 @@ import App from './App';
 import './App.scss';
 
 const app = (<App />);
-ReactDOM.render(app, document.getElementById('root'));
+ReactDOM.render(app, document.getElementById('suggested-stories-container'));

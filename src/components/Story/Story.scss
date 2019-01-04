@@ -1,7 +1,7 @@
 .Story {
   flex: 1;
   height: 165px;
-  min-width: 470px;
+  min-width: 445px;
   box-sizing: border-box;
   transition: all 0.3s linear;
   padding: 10px;
@@ -21,7 +21,7 @@
   }
   .StoryDetails {
     display: table-cell;
-    min-width: 298px;
+    min-width: 274px;
     vertical-align: top;
     padding-left: 11px;
     word-wrap: break-word;

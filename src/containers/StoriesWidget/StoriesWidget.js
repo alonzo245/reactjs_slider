@@ -3,12 +3,11 @@ import axios from '../../axios';
 import './StoriesWidget.scss';
 import Story from '../../components/Story/Story';
 import { FaArrowCircleRight, FaArrowCircleLeft } from 'react-icons/fa';
-
 class StoriesWidget extends Component {
 
   state = {
-    properties: null,
-    property: null
+    stories: null,
+    currentStory: null
   }
 
   componentDidMount() {
@@ -24,76 +23,64 @@ class StoriesWidget extends Component {
         });
 
         this.setState({
-          properties: updatedStories,
-          property: updatedStories[0]
+          stories: updatedStories,
+          currentStory: updatedStories[0]
         })
       })
       .catch(err => {
         console.log('err', err)
       });
   }
-  
 
-  nextProperty = (index) => {
-    if (index === this.state.properties.length - 2) {
+  nextStory = (index) => {
+    if (index === this.state.stories.length - 2) {
       return false;
     }
-    const newIndex = this.state.property.index + 1;
+    const newIndex = this.state.currentStory.index + 1;
     this.setState({
-      property: this.state.properties[newIndex]
+      currentStory: this.state.stories[newIndex]
     })
   }
 
-  prevProperty = (index) => {
+  prevStory = (index) => {
     if (index === 0) {
       return false;
     }
 
-    const newIndex = this.state.property.index - 1;
+    const newIndex = this.state.currentStory.index - 1;
     this.setState({
-      property: this.state.properties[newIndex]
+      currentStory: this.state.stories[newIndex]
     })
   }
 
   render() {
-    if (!this.state.properties) {
+    if (!this.state.stories) {
+      console.log(this.state)
       return 'loading...';
     }
     else {
-      const { properties, property } = this.state;
+      const { stories, currentStory } = this.state;
       return (
-        <div className="App">
-
-
-          <div className="page">
+        <React.Fragment>
           <FaArrowCircleRight className="NextBtn"
-                onClick={() => this.nextProperty(property.index)}
-              ></FaArrowCircleRight>
-              <FaArrowCircleLeft className="PrevBtn"
-                onClick={() => this.prevProperty(property.index)}
-              ></FaArrowCircleLeft>
-            <div className="col">
-
-              
-
-              <div className={`Stories-slider active-slide-${property.index}`}>
-                <div className="Stories-slider-wrapper" style={{
-                  'transform': `translateX(-${property.index * (100 / properties.length)}%)`
-                }}>
-
-                  {
-                    properties.map(property => <Story
-                      key={property.id}
-                      property={property}
-                    />
-                    )
-                  }
-                </div>
+            onClick={() => this.nextStory(currentStory.index)}
+          ></FaArrowCircleRight>
+          <FaArrowCircleLeft className="PrevBtn"
+            onClick={() => this.prevStory(currentStory.index)}
+          ></FaArrowCircleLeft>
+          <div className="StoriesWrapper">
+            <div className={"StoriesSlider"}>
+              <div className="StoriesSliderWrapper" style={{
+                'transform': `translateX(-${currentStory.index * (100 / stories.length)}%)`
+              }}>
+                {stories.map(story => <Story
+                  key={story.id}
+                  story={story}
+                />)}
               </div>
             </div>
-
           </div>
-        </div>
+        </React.Fragment>
       );
     }
   }

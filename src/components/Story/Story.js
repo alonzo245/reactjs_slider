@@ -1,8 +1,8 @@
 import React from 'react';
 import './Story.scss';
 
-const Story = ({ property }) => {
-    const { index, story_title, cover_thumb_url, story_sub_title, link } = property;
+const Story = ({ story }) => {
+    const { index, story_title, cover_thumb_url, story_sub_title, link } = story;
     return (
         <div id={`Story-${index}`} className="Story">
             <img src={cover_thumb_url} alt={''} />
