@@ -69,7 +69,7 @@
     "workbox-webpack-plugin": "3.6.3"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon index.js",
     "test": "node scripts/test.js",
     "build": "node scripts/build.js",
     "start:local": "node scripts/start.js",
@@ -132,6 +132,7 @@
   },
   "devDependencies": {
     "node-sass": "^4.11.0",
+    "nodemon": "^1.18.9",
     "sass-loader": "^7.1.0"
   }
 }

@@ -3,16 +3,19 @@ const path = require('path');
 
 const app = express();
 
-// Serve the static files from the React app
-app.use(express.static(path.join(__dirname, '/build')));
-
-
-// Handles any requests that don't match the ones above
-app.get('*', (req,res) =>{
-    res.sendFile(path.join(__dirname+'/build/index.html'));
+app.get('/build', (req, res) => {
+    console.log('sss');
+    res.sendFile(path.join(__dirname + '/build/index.html'));
 });
 
-const port = process.env.PORT || 5000;
+app.get('/', (req, res) => {
+    app.use(express.static(path.join(__dirname, '/')));
+    res.sendFile(path.join(__dirname + '/Sofas_n_Couches.html'));
+});
+
+app.use(express.static(path.join(__dirname, '/build')));
+
+const port = process.env.PORT || 8080;
 app.listen(port);
 
 console.log('App is listening on port ' + port);

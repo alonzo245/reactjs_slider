@@ -7,8 +7,8 @@ const Story = ({ story }) => {
         <div id={`Story-${index}`} className="Story">
             <img src={cover_thumb_url} alt={''} />
             <div className="StoryDetails">
-                <div className="title">{story_title}</div>
-                <p className="description">
+                <div className="Title">{story_title}</div>
+                <p className="Description">
                     {story_sub_title}
                 </p>
                 <a className="ReadStoryBtn" href={link}>Read Story</a>
